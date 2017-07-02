@@ -1,0 +1,62 @@
+#baner {
+	color: white;
+	background-color: #9A6000;
+	padding: 10px;
+	text-align: center;
+	font-family: Arial;
+}
+#srodkowy {
+	/*	width: 960;   */
+	/*  padding: 10px;   */
+	text-align: center;
+	float: left;
+	background-color: #ff9900;
+}
+#stopka {
+	/*	width: 960px;   */
+	color: white;
+	background-color: #9A6000;
+	padding: 10px;
+	text-align: right;
+	font-family: Arial;	
+	clear: both;
+}
+#logo {
+	float: left;
+}
+#Glewy {
+	color: white;
+	background-color: #716DA1;
+	width: 170px;
+	height: 1400px;
+	float: left;
+}
+#Gsrodkowy {
+		width: 810px;
+	height: 1400px;
+	text-align: center;
+	float: left;
+		background-color: #00FFFF;
+}
+#Glewy a {   
+	color: yellow;
+		float: left;
+		border: 1px solid black;
+		margin: 6px;
+		background-color: orange;
+		padding: 5px 5px;
+		text-decoration: none;
+		border-radius: 4px 4px 4px 4px;
+		width: 150px;
+		padding: 5px 2px;
+		color:black;
+}
+#Ksrodkowy {
+		width: 810px;
+	height: 400px;
+	text-align: center;
+	float: left;
+		background-color: #00FFFF;
+		font-family: Verdana;
+		font-size: 20px;
+}

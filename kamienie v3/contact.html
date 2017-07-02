@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Kontakt</title>
+	<link rel="stylesheet" href="data/contact.css">
+</head>
+
+<body>
+<h2>        FORMULARZ KONTAKTOWY</h2>
+<br>
+<form action="contact.php" method="POST">
+	<p><b>   Napisz do mnie.</b></p>
+	<br>
+	Twój mail:
+	<input type="text" name="adres" style="width: 384px">
+	<br><br>
+	Temat:
+	<input type="text" name="temat" style="width: 410px">
+	<br><br>
+	Wiadomość: 
+	<br>
+	<textarea name="wiadomosc" cols="55" rows="6"></textarea>
+	<br><br>
+	Wyślij kopię do siebie: <input type="checkbox" name="kopia">
+	<br>
+	<input type="submit" value=" WYŚLIJ ">
+	<input class=czcionka type="reset" value="WYCZYŚĆ">
+</form>
+
+</body>
+</html>

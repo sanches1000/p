@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8" />
+	<title>Kamienie</title>
+	<link rel="stylesheet" type="text/css" href="slider/demo.css"/>
+	<link rel="stylesheet" type="text/css" href="slider/slicebox.css"/>
+	<link rel="stylesheet" type="text/css" href="slider/custom.css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta name="description" content="Slicebox - 3D Image Slider with Fallback"/>
+	<meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic"/>
+	<meta name="author" content="Piotr S."/>
+	<link rel="shortcut icon" href="../favicon.ico"> 
+	<script type="text/javascript" src="slider/modernizr.custom.46884.js"></script>
+</head>
+
+<body>
+<!-- Slider - https://tympanus.net/codrops/2011/09/05/slicebox-3d-image-slider/ 
+Inne slidery darmowe: Nivo Slider[linki, przesuwa się], Coin Slider[też na kom.], jQuery jcarousel - basic[brak linkówm nie przesuwa się] -->
+<div class="container">
+
+	<h1>Zbiór kamieni</h1>
+
+	<div class="wrapper">
+
+		<ul id="sb-slider" class="sb-slider">
+			<li>
+				<img src="slider/exchange.jpg" alt="Wymiana"/>
+				<div class="sb-description">
+					<center><h3 style="color: black; font-size: 40px">Wymieńmy się kamieniami, napisz do mnie</h3></center>
+				</div>
+			</li>
+			<li>
+				<a href="list.php"><img src="slider/list.jpg" alt="Wykaz"/></a>
+				<div class="sb-description">
+					<h3>Wykaz kamieni</h3>
+				</div>
+			</li>
+			<li>
+				<a href="gallery.php"><img src="slider/gallery.jpg" alt="Galeria"/></a>
+				<div class="sb-description">
+					<h3>Galeria</h3>
+				</div>
+			</li>
+			<li>
+				<a href="contact.html"><img src="slider/contact.jpg" alt="Kontakt"/></a>
+				<div class="sb-description">
+					<h3>Kontakt</h3>
+				</div>
+			</li>
+		</ul>
+
+		<div id="shadow" class="shadow"></div>
+
+		<div id="nav-arrows" class="nav-arrows">
+			<a href="#">Next</a>
+			<a href="#">Previous</a>
+		</div>
+
+		<div id="nav-dots" class="nav-dots">
+			<span class="nav-dot-current"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+	</div><!-- /wrapper -->
+
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="slider/jquery.slicebox.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		var Page = (function() {
+
+			var $navArrows = $( '#nav-arrows' ).hide(),
+				$navDots = $( '#nav-dots' ).hide(),
+				$nav = $navDots.children( 'span' ),
+				$shadow = $( '#shadow' ).hide(),
+				slicebox = $( '#sb-slider' ).slicebox( {
+						onReady : function() {
+
+						$navArrows.show();
+						$navDots.show();
+						$shadow.show();
+
+					},
+					onBeforeChange : function( pos ) {
+
+						$nav.removeClass( 'nav-dot-current' );
+						$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+					}
+				} ),
+						
+				init = function() {
+
+					initEvents();
+							
+				},
+				initEvents = function() {
+
+					// add navigation events
+					$navArrows.children( ':first' ).on( 'click', function() {
+
+						slicebox.next();
+						return false;
+
+					} );
+
+					$navArrows.children( ':last' ).on( 'click', function() {
+								
+						slicebox.previous();
+						return false;
+
+					} );
+
+					$nav.each( function( i ) {
+							
+						$( this ).on( 'click', function( event ) {
+									
+							var $dot = $( this );
+									
+							if( !slicebox.isActive() ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$dot.addClass( 'nav-dot-current' );
+									
+							}
+									
+							slicebox.jump( i + 1 );
+							return false;
+								
+						} );
+								
+					} );
+
+				};
+
+				return { init : init };
+
+		})();
+
+		Page.init();
+
+
+	});
+</script>
+<!-- vPS -->
+
+</body>
+</html>	
